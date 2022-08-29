@@ -12,11 +12,11 @@ async function saveFileAsync(path, content) {
 
 const withPermissionConfig = (config, props) => {
   const permissions = props.permissions ?? [];
-  const permissionsPath = permissions.map(item => `pod 'Permission-${item}', :path => "#{permissions_path}/${item}"`).join('\n');
-  return withPlugins(config, [withPermissionSupport.bind(null, permissionsPath)])
+  const permissionsPath = permissions.map(item => `pod 'Permission-${item}', :path => "#{permissions_path}/${item}"`).join('\n  ');
+  return withPlugins(config, [(c) => withPermissionSupport.bind(permissionsPath, c)])
 }
 
-const withPermissionSupport = (c, permissionsPath) =>
+const withPermissionSupport = (permissionsPath, c) =>
   withDangerousMod(c, [
     'ios',
     async config => {
