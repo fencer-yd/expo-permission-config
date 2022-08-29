@@ -13,7 +13,7 @@ async function saveFileAsync(path, content) {
 const withPermissionConfig = (config, props) => {
   const permissions = props.permissions ?? [];
   const permissionsPath = permissions.map(item => `pod 'Permission-${item}', :path => "#{permissions_path}/${item}"`).join('\n  ');
-  return withPlugins(config, [(c) => withPermissionSupport.bind(permissionsPath, c)])
+  return withPlugins(config, [(c) => withPermissionSupport(permissionsPath, c)])
 }
 
 const withPermissionSupport = (permissionsPath, c) =>
