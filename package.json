@@ -1,0 +1,11 @@
+{
+  "name": "expo-permission-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "982039620@qq.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@expo/config-plugins": "^5.0.1"
+  }
+}
